@@ -12,16 +12,11 @@ public class Student {
 	}
 	
 	public double calcMissingPoints() {
-		return 60 - calcFinalGrade();
+		return isApproved() ? 0 : 60 - calcFinalGrade();
 	}
 	
-	public void isApproved() {
-		if (calcFinalGrade() >= 60) {
-			System.out.println("PASS");
-		} else {
-			System.out.println("FAILED");
-			System.out.printf("MISSING %.2f POINTS", calcMissingPoints());			
-		}
+	public boolean isApproved() {
+		return calcFinalGrade() >= 60;
 	}
 
 }

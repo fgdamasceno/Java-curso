@@ -27,8 +27,15 @@ public class Exercicio03 {
 		student.thirdGrade = sc.nextDouble();
 		
 		System.out.println();
-		System.out.printf("FINAL GRADE = %.2f%n", student.calcFinalGrade());
-		student.isApproved();
+		if (student.isApproved()) {
+			System.out.printf("FINAL GRADE = %.2f%n", student.calcFinalGrade());
+			System.out.println("PASS");
+		} else {
+			System.out.printf("FINAL GRADE = %.2f%n", student.calcFinalGrade());
+			System.out.println("FAILED");
+			System.out.printf("MISSIN %.2f POINTS", student.calcMissingPoints());
+		}	
+		
 		
 		sc.close();
 
