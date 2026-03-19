@@ -8,44 +8,47 @@ import entities.BankAccount;
 public class Program {
 
 	public static void main(String[] args) {
-		
+
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
+		BankAccount account;
+
 		System.out.print("Enter account number: ");
 		int accNumber = sc.nextInt();
-		sc.nextLine();
 		System.out.print("Enter account holder: ");
+		sc.nextLine();
 		String accHolder = sc.nextLine();
 		System.out.print("Is there an initial deposit (y/n)? ");
-		char willDeposit = sc.next().charAt(0);
+		char response = sc.next().charAt(0);
+
 		
-		double deposit = 0;		
-		if (willDeposit == 'y') {
+		if (response == 'y') {
 			System.out.print("Enter initial deposit value: ");
-			deposit = sc.nextDouble();			
-		}		
-		
-		BankAccount account = new BankAccount(accNumber, accHolder, deposit); 
-		
+			double initialDeposit = sc.nextDouble();
+			account = new BankAccount(accNumber, accHolder, initialDeposit);
+		} else {
+			account = new BankAccount(accNumber, accHolder);
+		}
+
 		System.out.println();
 		System.out.println("Account data:");
-		System.out.println(account.toString());
-		
+		System.out.println(account);
+
 		System.out.println();
 		System.out.print("Enter a deposit value: ");
-		deposit = sc.nextDouble();
-		account.deposit(deposit);
+		double depositValue = sc.nextDouble();
+		account.deposit(depositValue);
 		System.out.println("Updated account data:");
-		System.out.println(account.toString());
-		
+		System.out.println(account);
+
 		System.out.println();
 		System.out.print("Enter a withdraw value: ");
-		double withdraw = sc.nextDouble();
-		account.withdraw(withdraw);
+		double withdrawValue = sc.nextDouble();
+		account.withdraw(withdrawValue);
 		System.out.println("Updated account data:");
-		System.out.println(account.toString());
-		
+		System.out.println(account);
+
 		sc.close();
 
 	}
