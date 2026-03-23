@@ -14,6 +14,7 @@ public class Exercicio01 {
 		int[] vect = new int[n];
 		
 		for (int i = 0; i < vect.length; i++) {
+			System.out.print("Digite um número: ");
 			vect[i] = sc.nextInt();
 		}
 		
