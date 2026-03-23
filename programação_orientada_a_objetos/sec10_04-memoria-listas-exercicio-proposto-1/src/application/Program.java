@@ -35,7 +35,7 @@ public class Program {
 			if (rentRoom[i] != null) {
 				System.out.println(rentRoom[i].getRoomNumber() + ": " + rentRoom[i].getTenantName() + ", "
 						+ rentRoom[i].getTenantEmail());
-			}
+			}			
 		}
 
 		sc.close();
