@@ -9,14 +9,14 @@ public class Exercicio05 {
 		Scanner sc = new Scanner(System.in);
 
 		// Peça A
-		int codigoA = sc.nextInt();
+//		int codigoA = sc.nextInt();
 		int quantidadeA = sc.nextInt();
 		double precoA = sc.nextDouble();
 
 		double valorTotalA = quantidadeA * precoA;
 
 		// Peça B
-		int codigoB = sc.nextInt();
+//		int codigoB = sc.nextInt();
 		int quantidadeB = sc.nextInt();
 		double precoB = sc.nextDouble();
 
