@@ -25,7 +25,7 @@ public class Program {
 		// Converte String para Data-Hora
 		LocalDate d04 = LocalDate.parse("2026-03-25"); // Texto ISO 8601
 		LocalDateTime d05 = LocalDateTime.parse("2026-03-25T14:57:09");
-		Instant d06 = Instant.parse("2026-03-25T01:57:58Z");
+		Instant d06 = Instant.parse("2026-03-25T01:30:58Z");
 		
 		System.out.println("d04 = " + d04);
 		System.out.println("d05 = " + d05);
@@ -57,7 +57,7 @@ public class Program {
 		
 		System.out.println("---------------");
 		
-		// Formatação		
+		// Formatação: d04, d05, d06
 		// Convertendo para texto
 		
 		System.out.println("d04 = " + d04.format(fmt1));
@@ -71,6 +71,34 @@ public class Program {
 		// Instant necessita de formatação com zona!
 		System.out.println("d06 = " + fmt3.format(d06)); // Por que Instant não possui o método format()
 		System.out.println("d06 = " + fmt5.format(d06)); 
+		
+		// Conversão: d04, d05, d06
+		
+		// obtendo ZoneIds
+//		for (String s : ZoneId.getAvailableZoneIds()) {
+//			System.out.println(s);
+//		}
+		
+		// Instant para local considerando horário do computador
+		LocalDate r1 = LocalDate.ofInstant(d06, ZoneId.systemDefault());
+		LocalDate r2 = LocalDate.ofInstant(d06, ZoneId.of("Portugal"));
+		LocalDateTime r3 = LocalDateTime.ofInstant(d06, ZoneId.systemDefault());
+		LocalDateTime r4 = LocalDateTime.ofInstant(d06, ZoneId.of("Portugal"));
+		
+		
+		System.out.println("Resultado 1 = " + r1);
+		System.out.println("Resultado 2 = " + r2);
+		System.out.println("Resultado 2 = " + r3);
+		System.out.println("Resultado 2 = " + r4);
+		
+		// Obtenção de dados (dia, mês, ano, horário): d04, d05
+		
+		System.out.println("d04 dia = " + d04.getDayOfMonth());
+		System.out.println("d04 mês = " + d04.getMonthValue());
+		System.out.println("d04 ano = " + d04.getYear());
+		System.out.println("d05 hora = " + d05.getHour());
+		System.out.println("d05 minuto = " + d05.getMinute());
+		
 		
 		
 		
