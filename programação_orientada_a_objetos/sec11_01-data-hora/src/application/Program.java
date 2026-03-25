@@ -3,6 +3,7 @@ package application;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class Program {
@@ -10,9 +11,9 @@ public class Program {
 	// Data-hora
 	public static void main(String[] args) {
 		
-		// https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/format/DateTimeFormatter.html
-		
+		// https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/format/DateTimeFormatter.html		
 		// Instanciação
+		
 		LocalDate d01 = LocalDate.now();
 		LocalDateTime d02 = LocalDateTime.now();
 		Instant d03 = Instant.now(); // global
@@ -24,7 +25,7 @@ public class Program {
 		// Converte String para Data-Hora
 		LocalDate d04 = LocalDate.parse("2026-03-25"); // Texto ISO 8601
 		LocalDateTime d05 = LocalDateTime.parse("2026-03-25T14:57:09");
-		Instant d06 = Instant.parse("2026-03-25T17:57:58Z");
+		Instant d06 = Instant.parse("2026-03-25T01:57:58Z");
 		
 		System.out.println("d04 = " + d04);
 		System.out.println("d05 = " + d05);
@@ -38,6 +39,9 @@ public class Program {
 		// Texto em formato customizado
 		DateTimeFormatter fmt1 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+		DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
+		DateTimeFormatter fmt4 = DateTimeFormatter.ISO_DATE_TIME;
+		DateTimeFormatter fmt5 = DateTimeFormatter.ISO_INSTANT;
 		
 		LocalDate d08 = LocalDate.parse("20/07/2022", fmt1);
 		LocalDateTime d09 = LocalDateTime.parse("20/07/2022 15:54", fmt2);
@@ -50,6 +54,27 @@ public class Program {
 		
 		System.out.println("d10 = " + d10);
 		System.out.println("d11 = " + d11);
+		
+		System.out.println("---------------");
+		
+		// Formatação		
+		// Convertendo para texto
+		
+		System.out.println("d04 = " + d04.format(fmt1));
+		System.out.println("d04 = " + fmt1.format(d04));
+		System.out.println("d04 = " + d04.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+		
+		System.out.println("d05 = " + d05.format(fmt1));
+		System.out.println("d05 = " + d05.format(fmt2));
+		System.out.println("d05 = " + d05.format(fmt4));
+		
+		// Instant necessita de formatação com zona!
+		System.out.println("d06 = " + fmt3.format(d06)); // Por que Instant não possui o método format()
+		System.out.println("d06 = " + fmt5.format(d06)); 
+		
+		
+		
+		
 		
 	}
 
