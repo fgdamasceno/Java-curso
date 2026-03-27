@@ -28,11 +28,13 @@ public class Program {
 		System.out.print("Birth date (DD/MM/YYYY): ");
 		Date birthDate = sdf.parse(sc.next());
 		
+		Client client = new Client(name, email, birthDate);
+		
 		System.out.println("Enter order data:");
 		System.out.print("Status: ");
-		String orderStatus = sc.next();
+		OrderStatus orderStatus = OrderStatus.valueOf(sc.next());
 		
-		Order order = new Order(new Date(), OrderStatus.valueOf(orderStatus), new Client(name, email, birthDate));
+		Order order = new Order(new Date(), orderStatus, client);
 		
 		System.out.print("How many items to this order? ");
 		int n = sc.nextInt();		
@@ -43,12 +45,17 @@ public class Program {
 			System.out.print("Product price: ");
 			Double productPrice = sc.nextDouble();
 			System.out.print("Quantity: ");
-			int productQuantity = sc.nextInt();
+			int productQuantity = sc.nextInt();			
 			
-			order.addItem(new OrderItem(productQuantity, productPrice, new Product(productName, productPrice)));
+			Product product = new Product(productName, productPrice);			
+			
+			OrderItem orderItem = new OrderItem(productQuantity, productPrice, product);
+			
+			order.addItem(orderItem);
 		}		
 		
 		System.out.println();
+		System.out.println("ORDER SUMMARY:");
 		System.out.println(order);
 		
 		sc.close();
