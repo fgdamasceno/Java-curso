@@ -33,6 +33,19 @@ public class Program {
 			System.out.println("Update!");
 		}
 		
+		// SOBREPOSIÇÃO
+		Account acc6 = new Account(1010, "Bob", 1000.0);
+		acc6.withdraw(200.0);
+		System.out.println(acc6.getBalance());
+		
+		Account acc7 = new SavingsAccount(1011, "Maria", 1000.0, 0.01);
+		acc7.withdraw(200.0);
+		System.out.println(acc7.getBalance());
+		
+		Account acc8 = new BusinessAccount(1012, "Paul", 1000.0, 500.0);
+		acc8.withdraw(200.0);
+		System.out.println(acc8.getBalance());
+		
 	}
 
 }
