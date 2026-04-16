@@ -9,7 +9,7 @@ public class Program {
 	// FileReader e BufferedReader
 	public static void main(String[] args) {
 
-		String path = "C:\\Users\\fgdam\\dev\\workspace-java-completo-udemy\\arquivos\\in.txt";		
+		String path = "C:\\Users\\fgdam\\dev\\workspace-java-completo-udemy\\arquivos\\names.txt";		
 
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {			
 			String line = br.readLine();
