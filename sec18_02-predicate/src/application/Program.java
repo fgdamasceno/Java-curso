@@ -2,6 +2,7 @@ package application;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import entities.Product;
 
@@ -17,8 +18,13 @@ public class Program {
 		list.add(new Product("HD Case", 80.90));
 
 		double min = 100.0;
+		Predicate<Product> pred = p -> p.getPrice() >= min;
 
-		list.removeIf(p -> p.getPrice() >= min);
+//		list.removeIf(p -> p.getPrice() >= min);		
+//		list.removeIf(new ProductPredicate());		
+//		list.removeIf(Product::staticProductPredicate);
+//		list.removeIf(Product::nonStaticProductPredicate);
+		list.removeIf(pred);
 
 		for (Product p : list) {
 			System.out.println(p);
