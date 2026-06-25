@@ -19,6 +19,7 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
+		// PATH: C:\Users\fgdam\dev\workspace-java-completo-udemy\arquivos\products.csv
 		System.out.print("Enter full file path: ");
 		String path = sc.nextLine();
 
