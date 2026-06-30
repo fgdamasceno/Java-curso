@@ -97,3 +97,6 @@ replay_pid*
 
 # STS
 .project
+
+# Workspace
+db.properties
